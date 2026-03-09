@@ -1,0 +1,9 @@
+//ID-Name-Type-Desc
+//ID: 2 digits
+//Name: 30 digits max
+//Type: INICIAL, NORMAL, SALIDA
+//Desc: 150 digits max
+
+01-Plaza-INICIAL-Placeholder
+02-Habitacion-NORMAL-Placeholder
+03-Clase-NORMAL-Placeholder

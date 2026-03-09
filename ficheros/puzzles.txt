@@ -1,0 +1,9 @@
+//IDpuzzle-Name-IDsala-Desc-Sol
+//IDpuzzle: 3 digits
+//Name: 15 digits max
+//IDsala: 2 digits
+//Desc: 150 digits max
+//Sol: 50 digits max
+
+P01-Panel-01-Introduce codigo-6606
+P02-Movimiento-03-Mueve los objetos del suelo-345

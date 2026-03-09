@@ -1,0 +1,8 @@
+//ID-Name-Player-Password-Inventory
+//ID: 2 digits
+//Name: 20 digits max
+//Player: 7 digits
+//Password: 8 digits
+//Inventory: Undefined
+
+01-Carlos Junquera-player1-1234567-OB01

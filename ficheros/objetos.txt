@@ -1,0 +1,9 @@
+//OBNum-Name-Desc-Place
+//OBNum: 4 digits
+//Name: 15 digits max
+//Desc: 50 digits max
+//Place: 2 digits
+
+OB01-Tarjeta-Placeholder-02
+OB02-Llave-Placeholder-06
+OB03-Comida-Placeholder-03

@@ -1,0 +1,9 @@
+//IDcon-IDori-IDdest-State-Cond
+//IDcon: 3 digits
+//IDori: 2 digits
+//IDdest: 2 digits
+//State: Activa, Bloqueada
+//Cond: 0, IDobj, IDpuzzle
+
+C01-02-Habitacion-01-Plaza-Activa-0
+C02-03-Clase-02-Habitacion-Bloqueada-OB02

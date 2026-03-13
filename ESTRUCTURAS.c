@@ -30,14 +30,14 @@ typedef struct {
 
 typedef struct {
     char id_objeto[5];
-    char nombre_obj[16];
+    char nombre_objeto[16];
     char descripcion_objeto[51];
     int localizacion_objeto; // 0: SALA ; 1: INVENTARIO
 }Objetos;
 
 typedef struct {
     char id_puzle[4];
-    int id_sala; // Sala donde se encuentra
+    int id_sala_puzle; // Sala donde se encuentra
     int tipo_elemento; // Elemento que genera resolver el puzle, 1: CÓDIGO ; 2: PALABRA
     char descripcion_puzle[151];
     char solucion_puzle[51];

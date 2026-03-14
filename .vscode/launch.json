@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/javif/Desktop/UNI/1ºMP/mp/MP",
-      "program": "c:/Users/javif/Desktop/UNI/1ºMP/mp/MP/build/Debug/outDebug",
+      "cwd": "c:/Users/bugac/Documents/MP/MP",
+      "program": "c:/Users/bugac/Documents/MP/MP/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

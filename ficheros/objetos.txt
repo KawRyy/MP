@@ -4,6 +4,6 @@
 //Desc: 50 digits max
 //Place: 2 digits
 
-OB01-Tarjeta-Placeholder-02
-OB02-Llave-Placeholder-06
-OB03-Comida-Placeholder-03
+OB01-LlaveSecretaria-Nan-02
+OB02-Ganzua-Nan-05
+OB03-Martillo-Nan-07

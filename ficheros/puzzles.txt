@@ -5,5 +5,5 @@
 //Desc: 150 digits max
 //Sol: 50 digits max
 
-P01-Panel-01-Introduce codigo-6606
-P02-Movimiento-03-Mueve los objetos del suelo-345
+P01-DirectorESI-Nan-Escribe el nombre del director de la ESI-Luis Lafuente
+P02-Binario-Nan-Codifica 193 (decimal) a binario (8 bits)-11000001

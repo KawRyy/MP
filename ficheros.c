@@ -31,7 +31,7 @@ int ProcesarArchivo(int id){
 int jugadores(){
     FILE *f;
     char c;
-    if((f=fopen("jugadores.txt","r+"))==NULL){
+    if((f=fopen("ficheros/jugadores.txt","r+"))==NULL){
         printf("Error al abrir el archivo jugadores.txt");
         exit(1);
     }
@@ -46,7 +46,7 @@ int jugadores(){
 int partida(){
     FILE *f;
     char c;
-    if((f=fopen("partida.txt","r+"))==NULL){
+    if((f=fopen("ficheros/partida.txt","r+"))==NULL){
         printf("Error al abrir el archivo partida.txt");
         exit(1);
     }
@@ -62,7 +62,7 @@ int partida(){
 int salas(){
     FILE *f;
     char c;
-    if((f=fopen("salas.txt","r"))==NULL){
+    if((f=fopen("ficheros/salas.txt","r"))==NULL){
         printf("Error al abrir el archivo salas.txt");
         exit(1);
     }
@@ -78,7 +78,7 @@ int salas(){
 int objetos(){
     FILE *f;
     char c;
-    if((f=fopen("objetos.txt","r"))==NULL){
+    if((f=fopen("ficheros/objetos.txt","r"))==NULL){
         printf("Error al abrir el archivo objetos.txt");
         exit(1);
     }
@@ -94,7 +94,7 @@ int objetos(){
 int conexiones(){
     FILE *f;
     char c;
-    if((f=fopen("conexiones.txt","r+"))==NULL){
+    if((f=fopen("ficheros/conexiones.txt","r+"))==NULL){
         printf("Error al abrir el archivo conexiones.txt");
         exit(1);
     }
@@ -110,7 +110,7 @@ int conexiones(){
 int puzzles(){
     FILE *f;
     char c;
-    if((f=fopen("puzzles.txt","r"))==NULL){
+    if((f=fopen("ficheros/puzzles.txt","r"))==NULL){
         printf("Error al abrir el archivo puzzles.txt");
         exit(1);
     }

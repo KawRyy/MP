@@ -8,7 +8,7 @@
 int leer_jugadores(Jugadores *jugadores){
     FILE *f;
 
-    if((f=fopen("ficheros/jugadores.txt","r+"))==NULL){
+    if((f=fopen("ficheros/jugadores.txt","r"))==NULL){
         return 0;
     }
 
@@ -19,7 +19,7 @@ int leer_jugadores(Jugadores *jugadores){
 int leer_partida(Partida *partida){
     FILE *f;
 
-    if((f=fopen("ficheros/partida.txt","r+"))==NULL){
+    if((f=fopen("ficheros/partida.txt","r"))==NULL){
         return 0;
     }
 
@@ -115,7 +115,7 @@ int leer_conexiones(Conexiones *conexiones){
     char line[256];
     int i = 0;
 
-    if((f=fopen("ficheros/conexiones.txt","r+"))==NULL){
+    if((f=fopen("ficheros/conexiones.txt","r"))==NULL){
         return 0;
     }
 

@@ -3,6 +3,8 @@
 #include <string.h>
 #include "ficheros.h"
 
+int abierto_correctamente = 0;
+
 //completar las 2 primeras
 //añadir funciones de guardado en ficheros
 
@@ -10,10 +12,12 @@ void leer_jugadores(Jugadores *jugadores){
     FILE *f;
 
     if((f=fopen("ficheros/jugadores.txt","r+"))==NULL){
+        abierto_correctamente = 0;
         printf("Error al abrir el archivo jugadores.txt");
         exit(1);
     }
 
+    abierto_correctamente = 1;
     fclose(f);
 }
 
@@ -21,10 +25,12 @@ void leer_partida(Partida *partida){
     FILE *f;
 
     if((f=fopen("ficheros/partida.txt","r+"))==NULL){
+        abierto_correctamente = 0;
         printf("Error al abrir el archivo partida.txt");
         exit(1);
     }
 
+    abierto_correctamente = 1;
     fclose(f);
 }
 
@@ -34,9 +40,12 @@ void leer_salas(Salas *salas){
     int i = 0;
 
     if((f=fopen("ficheros/salas.txt","r"))==NULL){
+        abierto_correctamente = 0;
         printf("Error al abrir el archivo salas.txt");
         exit(1);
     }
+
+    abierto_correctamente = 1;
 
     while(fgets(line, sizeof(line), f)){
         if(line[0] == '/' && line[1] == '/')
@@ -79,9 +88,12 @@ void leer_objetos(Objetos *objetos){
     int i = 0;
 
     if((f=fopen("ficheros/objetos.txt","r"))==NULL){
+        abierto_correctamente = 0;
         printf("Error al abrir el archivo objetos.txt");
         exit(1);
     }
+
+    abierto_correctamente = 1;
 
     while(fgets(line, sizeof(line), f)){
         if(line[0] == '/' && line[1] == '/')
@@ -117,9 +129,12 @@ void leer_conexiones(Conexiones *conexiones){
     int i = 0;
 
     if((f=fopen("ficheros/conexiones.txt","r+"))==NULL){
+        abierto_correctamente = 0;
         printf("Error al abrir el archivo conexiones.txt");
         exit(1);
     }
+
+    abierto_correctamente = 1;
 
     while(fgets(line, sizeof(line), f)){
         if(line[0] == '/' && line[1] == '/')
@@ -168,9 +183,12 @@ void leer_puzzles(Puzles *puzzles){
     int i = 0;
 
     if((f=fopen("ficheros/puzzles.txt","r"))==NULL){
+        abierto_correctamente = 0;
         printf("Error al abrir el archivo puzzles.txt");
         exit(1);
     }
+
+    abierto_correctamente = 1;
 
     while(fgets(line, sizeof(line), f)){
         if(line[0] == '/' && line[1] == '/')

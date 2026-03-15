@@ -3,6 +3,8 @@
 #include <string.h>
 #include <stddef.h>
 
+extern int abierto_correctamente;
+
 /* ESTRUCTURAS DE DATOS PARA VOLCAR LOS FICHEROS */
 
 typedef struct {

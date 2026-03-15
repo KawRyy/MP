@@ -3,7 +3,6 @@
 //Name: 30 digits max
 //Type: INICIAL, NORMAL, SALIDA
 //Desc: 150 digits max
-
 00-Biblioteca-INICIAL-Lugar donde inicia el jugador, bastante grande con 2 salidas: al laboratorio y al aula de teoria
 01-Aula_de_Teoria-NORMAL-Sala grande situada al lado de la biblioteca, conecta con la sala de seminario
 02-Aula_de_Seminario-NORMAL-Pequeña sala que conecta con el aula de teoria

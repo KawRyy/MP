@@ -4,7 +4,6 @@
 //IDdest: 2 digits
 //State: Activa, Bloqueada
 //Cond: 0, IDobj, IDpuzzle
-
 C01-00-03-Bloqueada-PUZZLE
 C02-00-01-Bloqueada-PUZZLE
 C03-01-02-Bloqueada-PUZZLE

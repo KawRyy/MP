@@ -4,8 +4,28 @@
 #include "sesion.h"
 #include "ficheros.h"
 
+void Menu(){
+    int acciones = 0;
+    printf("BIENVENIDO A ESI ESCAPE\n");
+    printf("MENÚ:\n 1. Nueva Partida\n 2.Cargar Partida\n 3. Salir\n");
+    scanf("%d", &acciones);
+    switch(acciones){
+        case 1:
+            //RegistrarUsuario();
+            break;
+        case 2:
+            IniciarSesion();
+            break;
+        case 3:
+            exit(0);
+            break;
+        default:
+            printf("Opción no válida. Por favor, elige una opción válida.\n");
+    }
+}
+
 void IniciarSesion(){
-    
+    int arranque = 0;
     printf("Introduce tu usuario: ");
     char usuario[50];
     fgets(usuario, sizeof(usuario), stdin);
@@ -17,22 +37,27 @@ void IniciarSesion(){
     fgets(contrasena, sizeof(contrasena), stdin);
     contrasena[strcspn(contrasena, "\n")] = 0;
 
-    ComprobarSesion(usuario, contrasena);
+    ComprobarSesion(usuario, contrasena, &arranque);
+    if(arranque == 1){
+        printf("¡Bienvenido, %s!\n", usuario);
+        Partida(usuario);
+    }
 }
 
-void ComprobarSesion(char *usuario, char *contrasena){
+void ComprobarSesion(char *usuario, char *contrasena, int *arranque){
 
-    FILE *partida = fopen("jugadores.txt", "r");
+    FILE *jugadores = fopen("ficheros/jugadores.txt", "r");
     char linea[100];
     int encontrado = 0;
 
-    while (fgets(linea, sizeof(linea), partida)) {
-        char *token = strtok(linea, ",");
+    while (fgets(linea, sizeof(linea), jugadores)) {
+        char *token = strtok(linea, "-");
         if (strcmp(token, usuario) == 0) {
-            token = strtok(NULL, ",");
+            token = strtok(NULL, "-");
             if (strcmp(token, contrasena) == 0) {
                 printf("¡Inicio de sesión exitoso!\n");
                 encontrado = 1;
+                *arranque = 1;
                 break;
             }
         }
@@ -44,3 +69,4 @@ void ComprobarSesion(char *usuario, char *contrasena){
 
     fclose(partida);
 }
+

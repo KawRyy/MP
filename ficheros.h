@@ -3,8 +3,6 @@
 #include <string.h>
 #include <stddef.h>
 
-extern int abierto_correctamente;
-
 /* ESTRUCTURAS DE DATOS PARA VOLCAR LOS FICHEROS */
 
 typedef struct {
@@ -63,11 +61,14 @@ typedef struct {
     int num_puzles;
 } Partida;
 
-void leer_jugadores(Jugadores *jugadores);
-void leer_partida(Partida *partida);
-void leer_salas(Salas *salas);
-void leer_objetos(Objetos *objetos);
-void leer_conexiones(Conexiones *conexiones);
-void leer_puzzles(Puzles *puzzles);
+int leer_jugadores(Jugadores *jugadores);
+int leer_partida(Partida *partida);
+int leer_salas(Salas *salas);
+int leer_objetos(Objetos *objetos);
+int leer_conexiones(Conexiones *conexiones);
+int leer_puzzles(Puzles *puzzles);
+int guardar_jugadores(Jugadores *jugadores);
+int guardar_partida(Partida *partida);
+int guardar_conexiones(Conexiones *conexiones, int num_conexiones);
 
 #endif /* FICHEROS_H */

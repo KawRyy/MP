@@ -3,49 +3,38 @@
 #include <string.h>
 #include "ficheros.h"
 
-int abierto_correctamente = 0;
+//completar jugadores y partida
 
-//completar las 2 primeras
-//añadir funciones de guardado en ficheros
-
-void leer_jugadores(Jugadores *jugadores){
+int leer_jugadores(Jugadores *jugadores){
     FILE *f;
 
     if((f=fopen("ficheros/jugadores.txt","r+"))==NULL){
-        abierto_correctamente = 0;
-        printf("Error al abrir el archivo jugadores.txt");
-        exit(1);
+        return 0;
     }
 
-    abierto_correctamente = 1;
     fclose(f);
+    return 1;
 }
 
-void leer_partida(Partida *partida){
+int leer_partida(Partida *partida){
     FILE *f;
 
     if((f=fopen("ficheros/partida.txt","r+"))==NULL){
-        abierto_correctamente = 0;
-        printf("Error al abrir el archivo partida.txt");
-        exit(1);
+        return 0;
     }
 
-    abierto_correctamente = 1;
     fclose(f);
+    return 1;
 }
 
-void leer_salas(Salas *salas){
+int leer_salas(Salas *salas){
     FILE *f;
     char line[256];
     int i = 0;
 
     if((f=fopen("ficheros/salas.txt","r"))==NULL){
-        abierto_correctamente = 0;
-        printf("Error al abrir el archivo salas.txt");
-        exit(1);
+        return 0;
     }
-
-    abierto_correctamente = 1;
 
     while(fgets(line, sizeof(line), f)){
         if(line[0] == '/' && line[1] == '/')
@@ -80,20 +69,17 @@ void leer_salas(Salas *salas){
     }
 
     fclose(f);
+    return 1;
 }
 
-void leer_objetos(Objetos *objetos){
+int leer_objetos(Objetos *objetos){
     FILE *f;
     char line[256];
     int i = 0;
 
     if((f=fopen("ficheros/objetos.txt","r"))==NULL){
-        abierto_correctamente = 0;
-        printf("Error al abrir el archivo objetos.txt");
-        exit(1);
+        return 0;
     }
-
-    abierto_correctamente = 1;
 
     while(fgets(line, sizeof(line), f)){
         if(line[0] == '/' && line[1] == '/')
@@ -121,20 +107,17 @@ void leer_objetos(Objetos *objetos){
     }
 
     fclose(f);
+    return 1;
 }
 
-void leer_conexiones(Conexiones *conexiones){
+int leer_conexiones(Conexiones *conexiones){
     FILE *f;
     char line[256];
     int i = 0;
 
     if((f=fopen("ficheros/conexiones.txt","r+"))==NULL){
-        abierto_correctamente = 0;
-        printf("Error al abrir el archivo conexiones.txt");
-        exit(1);
+        return 0;
     }
-
-    abierto_correctamente = 1;
 
     while(fgets(line, sizeof(line), f)){
         if(line[0] == '/' && line[1] == '/')
@@ -175,20 +158,17 @@ void leer_conexiones(Conexiones *conexiones){
     }
 
     fclose(f);
+    return 1;
 }
 
-void leer_puzzles(Puzles *puzzles){
+int leer_puzzles(Puzles *puzzles){
     FILE *f;
     char line[256];
     int i = 0;
 
     if((f=fopen("ficheros/puzzles.txt","r"))==NULL){
-        abierto_correctamente = 0;
-        printf("Error al abrir el archivo puzzles.txt");
-        exit(1);
+        return 0;
     }
-
-    abierto_correctamente = 1;
 
     while(fgets(line, sizeof(line), f)){
         if(line[0] == '/' && line[1] == '/')
@@ -220,5 +200,73 @@ void leer_puzzles(Puzles *puzzles){
     }
 
     fclose(f);
+    return 1;
 }
 
+int guardar_jugadores(Jugadores *jugadores){
+    
+    return 1;
+}
+
+int guardar_partida(Partida *partida){
+    
+    return 1;
+}
+
+int guardar_conexiones(Conexiones *conexiones, int num_conexiones){
+    FILE *f;
+    char comments[100][256];
+    int num_comments = 0;
+    char line[256];
+    int cond = 0;
+
+    if((f = fopen("ficheros/conexiones.txt", "r")) == NULL){
+        return 0;
+    }
+
+    while(fgets(line, sizeof(line), f) && cond == 0){
+        if(line[0] == '/' && line[1] == '/'){
+            strcpy(comments[num_comments], line);
+            num_comments++;
+        } else cond = 1;
+    }
+
+    if(freopen("ficheros/conexiones.txt", "w", f) == NULL){
+        fclose(f);
+        return 0;
+    }
+
+    for(int i = 0; i < num_conexiones; i++){
+        if(conexiones[i].estado_conexion == 0 && conexiones[i].condicion_conexion == 0){
+            conexiones[i].estado_conexion = 1;
+        }
+    }
+
+    for(int i = 0; i < num_comments; i++){
+        fputs(comments[i], f);
+    }
+
+    for(int i = 0; i < num_conexiones; i++){
+        char state[10];
+        if(conexiones[i].estado_conexion == 1){
+            strcpy(state, "Activa");
+        } else {
+            strcpy(state, "Bloqueada");
+        }
+
+        char cond[10];
+        if(conexiones[i].condicion_conexion == 0){
+            strcpy(cond, "0");
+        } else if(conexiones[i].condicion_conexion == 1){
+            strcpy(cond, "OB");
+        } else if(conexiones[i].condicion_conexion == 2){
+            strcpy(cond, "PUZZLE");
+        } else {
+            strcpy(cond, "0");
+        }
+
+        fprintf(f, "%s-%d-%d-%s-%s\n", conexiones[i].id_conexion, conexiones[i].id_sala_orig, conexiones[i].id_sala_dest, state, cond);
+    }
+    fclose(f);
+    return 1;
+}
